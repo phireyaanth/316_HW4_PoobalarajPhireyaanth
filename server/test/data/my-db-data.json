@@ -1,0 +1,98 @@
+{
+  "users": [
+    {
+      "firstName": "Ray",
+      "lastName": "Poobalaraj",
+      "email": "ray@playlister.dev",
+      "passwordHash": "$2a$10$dPEwsAVi1ojv2RfxxTpZjuKSAbep7zEKb5myegm.ATbQ4sJk4agGu",
+      "playlists": [
+        "68f53000ec1ea2ad00a6fb11",
+        "68f53000ec1ea2ad00a6fb12",
+        "68f53000ec1ea2ad00a6fb13"
+      ]
+    }
+  ],
+  "playlists": [
+    {
+      "_id": "68f53000ec1ea2ad00a6fb11",
+      "ownerEmail": "ray@playlister.dev",
+      "name": "Old Songs You Like (Michael Jackson Edition)",
+      "songs": [
+        { "title": "Billie Jean", "artist": "Michael Jackson", "year": 1983, "youTubeId": "Zi_XLOBDo_Y" },
+        { "title": "Thriller", "artist": "Michael Jackson", "year": 1982, "youTubeId": "sOnqjkJTMaA" },
+        { "title": "Beat It", "artist": "Michael Jackson", "year": 1982, "youTubeId": "oRdxUFDoQe0" },
+        { "title": "Smooth Criminal", "artist": "Michael Jackson", "year": 1987, "youTubeId": "h_D3VFfhvs4" },
+        { "title": "Man in the Mirror", "artist": "Michael Jackson", "year": 1988, "youTubeId": "PivWY9wn5ps" },
+        { "title": "Bad", "artist": "Michael Jackson", "year": 1987, "youTubeId": "dsUXAEzaC3Q" },
+        { "title": "The Way You Make Me Feel", "artist": "Michael Jackson", "year": 1987, "youTubeId": "HzZ_urpj4As" },
+        { "title": "Black or White", "artist": "Michael Jackson", "year": 1991, "youTubeId": "F2AitTPI5U0" },
+        { "title": "Don't Stop 'Til You Get Enough", "artist": "Michael Jackson", "year": 1979, "youTubeId": "yURRmWtbTbo" },
+        { "title": "Rock with You", "artist": "Michael Jackson", "year": 1979, "youTubeId": "5X-Mrc2l1d0" },
+        { "title": "Remember the Time", "artist": "Michael Jackson", "year": 1992, "youTubeId": "LeiFF0gvqcc" },
+        { "title": "You Are Not Alone", "artist": "Michael Jackson", "year": 1995, "youTubeId": "pAyKJAtDNCw" },
+        { "title": "They Don’t Care About Us", "artist": "Michael Jackson", "year": 1996, "youTubeId": "Pm5Vw1zYJ2s" },
+        { "title": "Earth Song", "artist": "Michael Jackson", "year": 1995, "youTubeId": "XAi3VTSdTxU" },
+        { "title": "Human Nature", "artist": "Michael Jackson", "year": 1982, "youTubeId": "ElN_4vUvTPs" },
+        { "title": "Dirty Diana", "artist": "Michael Jackson", "year": 1988, "youTubeId": "yUi_S6YWjZw" },
+        { "title": "Heal the World", "artist": "Michael Jackson", "year": 1992, "youTubeId": "BWf-eARnf6U" },
+        { "title": "Leave Me Alone", "artist": "Michael Jackson", "year": 1989, "youTubeId": "crbFmpezO4A" },
+        { "title": "Another Part of Me", "artist": "Michael Jackson", "year": 1988, "youTubeId": "P5vz6iwV38U" },
+        { "title": "Off the Wall", "artist": "Michael Jackson", "year": 1979, "youTubeId": "YcYsZJUa8Wc" }
+      ]
+    },
+    {
+      "_id": "68f53000ec1ea2ad00a6fb12",
+      "ownerEmail": "ray@playlister.dev",
+      "name": "Favorite Songs (Anirudh Edition)",
+      "songs": [
+        { "title": "Why This Kolaveri Di", "artist": "Dhanush (Music: Anirudh Ravichander)", "year": 2011, "youTubeId": "YR12Z8f1Dh8" },
+        { "title": "Arabic Kuthu (Halamithi Habibo)", "artist": "Anirudh Ravichander & Jonita Gandhi", "year": 2022, "youTubeId": "KUN5Uf9mObQ" },
+        { "title": "Vaathi Coming", "artist": "Anirudh Ravichander & Gana Balachandar", "year": 2020, "youTubeId": "fRD_3vJagxk" },
+        { "title": "Don'u Don'u Don'u (The Don’s Romance)", "artist": "Anirudh Ravichander & Alisha Thomas", "year": 2015, "youTubeId": "06PbdVIICPo" },
+        { "title": "Naa Ready", "artist": "Vijay & Anirudh Ravichander", "year": 2023, "youTubeId": "3wDiqlTNlfQ" },
+        { "title": "Hukum - Thalaivar Alappara", "artist": "Anirudh Ravichander", "year": 2023, "youTubeId": "gB2zKZxESTg" },
+        { "title": "Chellamma", "artist": "Anirudh Ravichander & Jonita Gandhi", "year": 2020, "youTubeId": "DV7nV9W7y-0" },
+        { "title": "So Baby", "artist": "Anirudh Ravichander & Ananthakrrishnan", "year": 2021, "youTubeId": "tRgdAvFccIo" },
+        { "title": "Kaavaalaa", "artist": "Shilpa Rao & Anirudh Ravichander", "year": 2023, "youTubeId": "lM8h5Mm6ODo" },
+        { "title": "Rendu Kaadhal", "artist": "Anirudh Ravichander, Shakthisree Gopalan, Aishwarya Suresh", "year": 2022, "youTubeId": "YlymYnShOLw" },
+        { "title": "Two Two Two", "artist": "Anirudh Ravichander, Sunidhi Chauhan, Sanjana Kalmanje", "year": 2021, "youTubeId": "MJmxdlCtFWU" },
+        { "title": "Udhungada Sangu", "artist": "Anirudh Ravichander", "year": 2014, "youTubeId": "RCXzH27eOIA" },
+        { "title": "Surviva", "artist": "Anirudh Ravichander feat. Yogi B, Mali Manoj", "year": 2017, "youTubeId": "0zz172zODiY" },
+        { "title": "Aaluma Doluma", "artist": "Anirudh Ravichander & Baadshah", "year": 2015, "youTubeId": "2ogKpj5QuSY" },
+        { "title": "Oh Penne", "artist": "Vishal Dadlani & Anirudh Ravichander", "year": 2013, "youTubeId": "C7MAqIcM-Sg" },
+        { "title": "Po Nee Po (The Pain of Love)", "artist": "Mohit Chauhan & Anirudh Ravichander", "year": 2012, "youTubeId": "DnyA_qEbTpw" },
+        { "title": "Neeyum Naanum", "artist": "Neeti Mohan & Anirudh Ravichander", "year": 2015, "youTubeId": "fYkQzTAx3Yo" },
+        { "title": "Kadhal Kan Kattudhe", "artist": "Shakthisree Gopalan & Anirudh Ravichander", "year": 2015, "youTubeId": "DjgwkfFnakM" },
+        { "title": "Ethir Neechal (Title Track)", "artist": "Yo Yo Honey Singh, Hiphop Tamizha Adhi, Anirudh Ravichander", "year": 2013, "youTubeId": "eooNdH9j3l0" },
+        { "title": "Amma Amma", "artist": "Siva Karthikeyan & Anirudh Ravichander", "year": 2014, "youTubeId": "OdVe7AUlJlU" }
+      ]
+    },
+    {
+      "_id": "68f53000ec1ea2ad00a6fb13",
+      "ownerEmail": "ray@playlister.dev",
+      "name": "Interesting & Unusual Songs",
+      "songs": [
+        { "title": "Windowlicker", "artist": "Aphex Twin", "year": 1999, "youTubeId": "sYXx4XgHkfg" },
+        { "title": "Tadow", "artist": "Masego & FKJ", "year": 2017, "youTubeId": "hC8CH0Z3L54" },
+        { "title": "Teardrop", "artist": "Massive Attack", "year": 1998, "youTubeId": "u7K72X4eo_s" },
+        { "title": "Hide and Seek", "artist": "Imogen Heap", "year": 2005, "youTubeId": "UYIAfiVGluk" },
+        { "title": "Breathe", "artist": "The Prodigy", "year": 1996, "youTubeId": "6_PAHbqq-o4" },
+        { "title": "Genesis", "artist": "Grimes", "year": 2012, "youTubeId": "1FH-q0I1fJY" },
+        { "title": "Frontier Psychiatrist", "artist": "The Avalanches", "year": 2000, "youTubeId": "1C0R4Z-1z2o" },
+        { "title": "L$D", "artist": "A$AP Rocky", "year": 2015, "youTubeId": "yEG2VTHS9yg" },
+        { "title": "Everything in Its Right Place", "artist": "Radiohead", "year": 2000, "youTubeId": "fHiGbolFFGw" },
+        { "title": "Oblivion", "artist": "Grimes", "year": 2012, "youTubeId": "JtH68PJIQLE" },
+        { "title": "Daydreaming", "artist": "Radiohead", "year": 2016, "youTubeId": "TTAU7lLDZYU" },
+        { "title": "Cellophane", "artist": "FKA twigs", "year": 2019, "youTubeId": "Yj2fV6U9b2E" },
+        { "title": "Space Song", "artist": "Beach House", "year": 2015, "youTubeId": "RBtlPT23PTM" },
+        { "title": "Nantes", "artist": "Beirut", "year": 2007, "youTubeId": "vI9jyWAnDq8" },
+        { "title": "Digital Bath", "artist": "Deftones", "year": 2000, "youTubeId": "IhB5AfU0-BU" },
+        { "title": "Silhouette", "artist": "Aquilo", "year": 2014, "youTubeId": "kcpZs2SpJZI" },
+        { "title": "Kids", "artist": "MGMT", "year": 2008, "youTubeId": "fe4EK4HSPkI" },
+        { "title": "Midnight City", "artist": "M83", "year": 2011, "youTubeId": "dX3k_QDnzHE" },
+        { "title": "Somebody That I Used To Know", "artist": "Gotye ft. Kimbra", "year": 2011, "youTubeId": "8UVNT4wvIGY" },
+        { "title": "1901", "artist": "Phoenix", "year": 2009, "youTubeId": "HL548cHH3OY" }
+      ]
+    }
+  ]
+}

@@ -17,14 +17,49 @@ async function fillCollection(collection, collectionName, data) {
     console.log(collectionName + " filled");
 }
 
+// --- helpers to merge & dedupe ---
+function uniqBy(arr, keyFn) {
+    const seen = new Set();
+    const out = [];
+    for (const item of arr || []) {
+        const k = keyFn(item);
+        if (!seen.has(k)) {
+            seen.add(k);
+            out.push(item);
+        }
+    }
+    return out;
+}
+
+function combineSeedData() {
+    const base = require('../example-db-data.json');        // Joe/Jane + playlists
+    const ray  = require('../my-db-data.json');            
+
+    const playlists = uniqBy(
+        [...(base.playlists || []), ...(ray.playlists || [])],
+        p => String(p._id).toLowerCase()
+    );
+
+    const users = uniqBy(
+        [...(base.users || []), ...(ray.users || [])],
+        u => String(u.email).toLowerCase()
+    );
+
+    return { users, playlists };
+}
+
 async function resetMongo() {
     const Playlist = require('../../../models/playlist-model');
     const User = require('../../../models/user-model');
-    const testData = require('../example-db-data.json');
+
+    // merge both files
+    const testData = combineSeedData();
 
     console.log("Resetting the Mongo DB");
     await clearCollection(Playlist, "Playlist");
     await clearCollection(User, "User");
+
+    // order matters: playlists first, then users
     await fillCollection(Playlist, "Playlist", testData.playlists);
     await fillCollection(User, "User", testData.users);
 }
