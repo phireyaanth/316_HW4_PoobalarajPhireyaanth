@@ -14,15 +14,14 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "Reset Mongo Data",
       "type": "node",
       "request": "launch",
-      "name": "Reset Mongo Data",
       "program": "${workspaceFolder}/server/test/data/mongo/index.js",
-      "args": [
-        "--runInBand"
-      ],
+      "cwd": "${workspaceFolder}/server",
+      "envFile": "${workspaceFolder}/server/.env",
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
+      "runtimeExecutable": "node"
     }
   ]
 }
