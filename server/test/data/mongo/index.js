@@ -1,49 +1,52 @@
-/**
- * Playlister Server - HW4
- * ------------------------
- * This is the main server entry point.
- * It connects to MongoDB using DB_CONNECT from .env
- * and starts the Express server on PORT.
- */
+const dotenv = require('dotenv').config({ path: __dirname + '/../../../.env' });
 
-const express = require('express');
+async function clearCollection(collection, collectionName) {
+    try {
+        await collection.deleteMany({});
+        console.log(collectionName + " cleared");
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+async function fillCollection(collection, collectionName, data) {
+    for (let i = 0; i < data.length; i++) {
+        let doc = new collection(data[i]);
+        await doc.save();
+    }
+    console.log(collectionName + " filled");
+}
+
+async function resetMongo() {
+    const Playlist = require('../../../models/playlist-model');
+    const User = require('../../../models/user-model');
+    const testData = require('../example-db-data.json');
+
+    console.log("Resetting the Mongo DB");
+    await clearCollection(Playlist, "Playlist");
+    await clearCollection(User, "User");
+    await fillCollection(Playlist, "Playlist", testData.playlists);
+    await fillCollection(User, "User", testData.users);
+}
+
 const mongoose = require('mongoose');
-const path = require('path');
-const cors = require('cors');
-require('dotenv').config({ path: path.resolve(__dirname, './.env') });
-
-// 🔹 Initialize Express app
-const app = express();
-app.use(express.json());
-app.use(cors());
-
-// ✅ Connect to MongoDB using DB_CONNECT from .env
-const uri =
-  process.env.DB_CONNECT ||
-  process.env.MONGO_URI ||
-  process.env.MONGODB_URI ||
-  'mongodb://127.0.0.1:27017/playlister';
 
 mongoose
-  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('✅ Connected to MongoDB at:', uri);
-
-    // Once DB is connected, start the server
-    const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => {
-      console.log(`🎧 Playlister Server running on port ${PORT}`);
-    });
+  .connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(async () => {
+      console.log("Connected to MongoDB at:", process.env.DB_CONNECT);
+      try {
+          await resetMongo();
+          console.log("✅ Mongo reset complete!");
+      } catch (e) {
+          console.error("Seeder error:", e.message);
+      } finally {
+          await mongoose.connection.close();
+          console.log("Database seeding finished.");
+          process.exit(0);
+      }
   })
-  .catch((err) => {
-    console.error('❌ MongoDB connection error:', err.message);
-    process.exit(1);
+  .catch(e => {
+      console.error('Connection error', e.message);
+      process.exit(1);
   });
-
-// 🔹 Example route (optional sanity check)
-app.get('/', (req, res) => {
-  res.send('Playlister backend is running!');
-});
-
-// Export app if you need it for testing
-module.exports = app;
