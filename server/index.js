@@ -1,34 +1,51 @@
-// THESE ARE NODE APIs WE WISH TO USE
-const express = require('express')
-const cors = require('cors')
-const dotenv = require('dotenv')
-const cookieParser = require('cookie-parser')
+// ===============================
+//  Playlister Server (Refactored)
+// ===============================
 
-// CREATE OUR SERVER
-dotenv.config()
+// Node/Express dependencies
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
+
+// Load environment variables
+dotenv.config();
+
+// Create our server
 const PORT = process.env.PORT || 4000;
-const app = express()
+const app = express();
 
-// SETUP THE MIDDLEWARE
-app.use(express.urlencoded({ extended: true }))
-app.use(cors({
-    origin: ["http://localhost:3000"],
-    credentials: true
-}))
-app.use(express.json())
-app.use(cookieParser())
+// ---------- MIDDLEWARE ----------
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: ['http://localhost:3000'],
+    credentials: true,
+  })
+);
+app.use(express.json());
+app.use(cookieParser());
 
-// SETUP OUR OWN ROUTERS AS MIDDLEWARE
-const authRouter = require('./routes/auth-router')
-app.use('/auth', authRouter)
-const storeRouter = require('./routes/store-router')
-app.use('/store', storeRouter)
+// ---------- ROUTERS ----------
+const authRouter = require('./routes/auth-router');
+const storeRouter = require('./routes/store-router');
+app.use('/auth', authRouter);
+app.use('/store', storeRouter);
 
-// INITIALIZE OUR DATABASE OBJECT
-const db = require('./db')
-db.on('error', console.error.bind(console, 'Database connection error:'))
+// ---------- DATABASE INITIALIZATION ----------
+const db = require('./db');
 
-// PUT THE SERVER IN LISTENING MODE
-app.listen(PORT, () => console.log(`Playlister Server running on port ${PORT}`))
+(async () => {
+  try {
+    await db.init(); // Connects to MongoDB or PostgreSQL depending on .env
+    console.log(`✅ Database initialized using provider: ${process.env.DB_PROVIDER || 'mongodb'}`);
+  } catch (err) {
+    console.error('❌ Failed to initialize database:', err);
+    process.exit(1);
+  }
+})();
 
-
+// ---------- START SERVER ----------
+app.listen(PORT, () => {
+  console.log(`🎧 Playlister Server running on port ${PORT}`);
+});
