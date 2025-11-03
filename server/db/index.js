@@ -1,15 +1,16 @@
+// server/db/index.js
+require('dotenv').config();
+console.log("[DEBUG] DB_PROVIDER =", process.env.DB_PROVIDER);
 
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-dotenv.config();
+let db;
+const provider = (process.env.DB_PROVIDER || 'mongodb').toLowerCase();
 
-mongoose
-    .connect(process.env.DB_CONNECT, { useNewUrlParser: true })
-    .catch(e => {
-        console.error('Connection error', e.message)
-    })
+if (provider === 'postgresql' || provider === 'postgres') {
+  console.log('[DB] Using PostgreSQL DatabaseManager');
+  db = require('./postgresql');
+} else {
+  console.log('[DB] Using MongoDB DatabaseManager');
+  db = require('./mongodb');
+}
 
-const db = mongoose.connection
-
-module.exports = db
-
+module.exports = db;
